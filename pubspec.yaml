@@ -37,6 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^6.1.2
 
+  # FOR OCR MODULE
+  google_mlkit_text_recognition: ^0.12.1
+  image_picker: ^1.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
