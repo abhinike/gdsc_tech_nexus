@@ -43,9 +43,7 @@ class OCRProvider extends ChangeNotifier {
     if (extractedText.isEmpty) {
       extractedText = 'No text recognized';
     }
-
     textEditingController.text = extractedText;
-
     textRecognizer.close();
     notifyListeners();
   }
@@ -58,5 +56,10 @@ class OCRProvider extends ChangeNotifier {
       return true;
     }
     return false;
+  }
+
+  void reset() {
+    textEditingController.text = "";
+    notifyListeners();
   }
 }

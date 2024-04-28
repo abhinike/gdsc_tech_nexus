@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gdsc_tech_nova/Provider/OcrProvider.dart';
 import 'package:gdsc_tech_nova/utils/app_colors..dart';
 import 'package:provider/provider.dart';
@@ -25,6 +27,96 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
           ),
         ),
         backgroundColor: AppColors.backgroundColor,
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
+          child: Row(
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    var isCopied =
+                        context.read<OCRProvider>().copyToClipboard();
+                    isCopied
+                        ? ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Text Copied to Clipboard"),
+                            ),
+                          )
+                        : null;
+                  },
+                  child: Container(
+                    height: 40,
+                    padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.shade400,
+                              blurRadius: 2,
+                              spreadRadius: 0)
+                        ],
+                        color: AppColors.secondaryColor,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.copy,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Copy Result to Clipboard",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              GestureDetector(
+                onTap: () => context.read<OCRProvider>().reset(),
+                child: Container(
+                  height: 40,
+                  padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.shade400,
+                            blurRadius: 2,
+                            spreadRadius: 0)
+                      ],
+                      color: AppColors.secondaryColor,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        Icons.clear_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "Clear",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
           child: Column(
@@ -43,6 +135,12 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
                   10,
                 ),
                 decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.shade400,
+                          blurRadius: 2,
+                          spreadRadius: 0)
+                    ],
                     color: Colors.grey.shade100,
                     borderRadius: BorderRadius.circular(20)),
                 child: Row(
@@ -118,7 +216,7 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
                 ),
               ),
               const SizedBox(
-                height: 15,
+                height: 20,
               ),
               const Text(
                 "Detection Result",
@@ -127,60 +225,28 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
               const Divider(),
               Expanded(
                 child: Container(
-                    padding: const EdgeInsets.all(
-                      10,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 15,
                     ),
-                    margin: const EdgeInsets.only(bottom: 10, top: 5),
+                    margin: const EdgeInsets.only(bottom: 5, top: 5),
                     decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.shade400,
+                              blurRadius: 2,
+                              spreadRadius: 0)
+                        ],
                         color: Colors.grey.shade100,
                         borderRadius: BorderRadius.circular(12)),
                     child: TextField(
                       controller:
                           context.read<OCRProvider>().textEditingController,
-                      maxLines: 100,
+                      minLines: 10,
+                      maxLines: null,
                       decoration: const InputDecoration(
                         border: InputBorder.none,
                       ),
                     )),
-              ),
-              InkWell(
-                onTap: () {
-                  var isCopied = context.read<OCRProvider>().copyToClipboard();
-                  isCopied
-                      ? ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text("Text Copied to Clipboard"),
-                          ),
-                        )
-                      : null;
-                },
-                child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: AppColors.secondaryColor,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.copy,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Copy Result to Clipboard",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ],
           ),
