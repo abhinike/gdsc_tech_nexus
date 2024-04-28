@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gdsc_tech_nova/Provider/OcrProvider.dart';
 import 'package:gdsc_tech_nova/utils/app_colors..dart';
 import 'package:provider/provider.dart';
@@ -19,6 +17,7 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
       create: (context) => OCRProvider(),
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: AppColors.backgroundColor,
           scrolledUnderElevation: 0,
           centerTitle: true,
           title: const Text(
@@ -28,7 +27,7 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
         ),
         backgroundColor: AppColors.backgroundColor,
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.fromLTRB(15, 0, 15, 15),
+          padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
           child: Row(
             children: [
               Expanded(
@@ -45,7 +44,7 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
                         : null;
                   },
                   child: Container(
-                    height: 40,
+                    height: 50,
                     padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
                     decoration: BoxDecoration(
                         boxShadow: [
@@ -55,7 +54,7 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
                               spreadRadius: 0)
                         ],
                         color: AppColors.secondaryColor,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(12)),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -77,43 +76,6 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 8,
-              ),
-              GestureDetector(
-                onTap: () => context.read<OCRProvider>().reset(),
-                child: Container(
-                  height: 40,
-                  padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey.shade400,
-                            blurRadius: 2,
-                            spreadRadius: 0)
-                      ],
-                      color: AppColors.secondaryColor,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.clear_rounded,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "Clear",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ),
-              )
             ],
           ),
         ),
@@ -218,9 +180,38 @@ class _TextRegonitionScreenState extends State<TextRegonitionScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                "Detection Result",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Detection Result",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                  GestureDetector(
+                    onTap: () => context.read<OCRProvider>().reset(),
+                    child: Container(
+                      height: 30,
+                      padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade400,
+                                blurRadius: 2,
+                                spreadRadius: 0)
+                          ],
+                          color: AppColors.backgroundColor,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Center(
+                        child: Text(
+                          "Clear Result",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.secondaryColor),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
               ),
               const Divider(),
               Expanded(
