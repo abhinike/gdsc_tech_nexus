@@ -1,6 +1,4 @@
-Certainly! Here's the README content in code format:
 
-```markdown
 # Live Object Recognition Using flutter_tflite
 
 This project demonstrates live object recognition using the `flutter_tflite` package, which integrates TensorFlow Lite models into Flutter apps. The example utilizes the SSD MobileNet model for real-time object detection.
@@ -40,13 +38,4 @@ Follow these steps to set up the project:
 
 Demo files for TensorFlow Lite models and labels can be found [here](https://github.com/shaqian/flutter_tflite/tree/master/example/assets).
 
-## Contributing
 
-Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-```
-
-You can simply copy and paste this code into your README.md file on GitHub.
