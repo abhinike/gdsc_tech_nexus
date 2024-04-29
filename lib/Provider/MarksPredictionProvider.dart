@@ -7,7 +7,7 @@ class MarksPredictionProvider extends ChangeNotifier {
   double marks = 0;
   bool isLoading = false;
 
-  Future<void> getMarks() async {
+  Future<void> getMarks(double studyHours) async {
     isLoading = true;
     notifyListeners();
 
@@ -15,7 +15,7 @@ class MarksPredictionProvider extends ChangeNotifier {
       final response = await http.post(
         Uri.parse("https://demo-krh2.onrender.com/predict"),
         headers: {"Content-Type": "application/json"},
-        body: jsonEncode({"study_hours": 5}),
+        body: jsonEncode({"study_hours": studyHours}),
       );
 
       if (response.statusCode == 200) {
@@ -33,4 +33,5 @@ class MarksPredictionProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
 }
