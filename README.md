@@ -20,12 +20,12 @@ To set up the Speech Recognition Flutter App on your local machine, follow these
 
 1. **Clone the Repository:**
     ```bash
-    git clone https://github.com/your-username/speech_recognition_app.git
+    git clone https://github.com/abhinike/gdsc_tech_nova.git
     ```
 
 2. **Navigate to the Project Directory:**
     ```bash
-    cd speech_recognition_app
+    cd gdsc_tech_nova
     ```
 
 3. **Install Dependencies:**
