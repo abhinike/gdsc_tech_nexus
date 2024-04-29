@@ -33,7 +33,9 @@ Follow these steps to set up the project:
 
 ## Screenshots
 
-[Add screenshots here]
+<img width="391" alt="image" src="https://github.com/abhinike/gdsc_tech_nova/assets/84562856/b11e1e7e-7aab-474f-97da-a9aab31737b0">
+![image](https://github.com/abhinike/gdsc_tech_nova/assets/84562856/b94e4b1e-3626-4110-9b12-71757dab32dc)
+
 
 ## Demo Files
 
