@@ -45,6 +45,7 @@ class MarksPredictionScreen extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 15,),
             GestureDetector(
               onTap: provider.isLoading
                   ? null
