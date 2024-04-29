@@ -15,23 +15,28 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Expanded(child: ListView(
-        children: [
-          ListTile(
-            title: const Text('Speech recognition'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const SpeechRecognitionScreen()));
-            },
-          ),
-          ListTile(
-            title: const Text('Marks prediction'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>  MarksPredictionScreen()));
-            },
-          ),
-          
-        ],
-      )),
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Expanded(child: ListView(
+          children: [
+            
+            ListTile(
+              title: const Text('Speech recognition', style: TextStyle(color: Colors.black),),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const SpeechRecognitionScreen()));
+              },
+            ),
+            ListTile(
+              title: const Text('Marks prediction'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>  const MarksPredictionScreen()));
+              },
+            ),
+            
+          ],
+        )),
+      ),
     );
   }
 }

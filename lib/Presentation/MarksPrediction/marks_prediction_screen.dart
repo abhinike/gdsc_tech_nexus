@@ -19,8 +19,9 @@ class MarksPredictionScreen extends StatelessWidget {
       ),
       body: Consumer<MarksPredictionProvider>(
         builder: (context, provider, _) => Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            SizedBox(height: 40,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -70,7 +71,7 @@ class MarksPredictionScreen extends StatelessWidget {
                 child:Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
-                    child: Text("Get Marks",style: TextStyle(
+                    child: Text("Predict",style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
