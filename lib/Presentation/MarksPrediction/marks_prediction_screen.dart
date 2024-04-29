@@ -13,8 +13,9 @@ class MarksPredictionScreen extends StatelessWidget {
     return Scaffold(
       body: Consumer<MarksPredictionProvider>(
         builder: (context, provider, _) => Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            SizedBox(height: 40,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -24,7 +25,7 @@ class MarksPredictionScreen extends StatelessWidget {
                     border: Border.all(color: Color.fromRGBO(196, 135, 198, .3)),
                     boxShadow: [
                       BoxShadow(
-                        color: Color.fromRGBO(196, 135, 198, 1),
+                        color: Colors.grey,
                         blurRadius: 20,
                         offset: Offset(0, 10),
                       )
@@ -64,7 +65,7 @@ class MarksPredictionScreen extends StatelessWidget {
                 child:Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
-                    child: Text("Get Marks",style: TextStyle(
+                    child: Text("Predict",style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),),)
