@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gdsc_tech_nova/utils/app_colors..dart';
 import 'package:provider/provider.dart';
 import '../../Provider/MarksPredictionProvider.dart';
 
@@ -11,6 +12,11 @@ class MarksPredictionScreen extends StatelessWidget {
     final TextEditingController _studyHoursController = TextEditingController();
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Marks Prediction screen"),
+        backgroundColor: AppColors.secondaryColor,
+        foregroundColor: AppColors.backgroundColor,
+      ),
       body: Consumer<MarksPredictionProvider>(
         builder: (context, provider, _) => Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +30,7 @@ class MarksPredictionScreen extends StatelessWidget {
                     border: Border.all(color: Color.fromRGBO(196, 135, 198, .3)),
                     boxShadow: [
                       BoxShadow(
-                        color: Color.fromRGBO(196, 135, 198, 1),
+                        color: AppColors.secondaryColor,
                         blurRadius: 20,
                         offset: Offset(0, 10),
                       )
@@ -58,7 +64,7 @@ class MarksPredictionScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width-200,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromRGBO(75, 0, 130, 1),
+                    color: AppColors.secondaryColor,
                   ),
 
                 child:Padding(
@@ -67,6 +73,7 @@ class MarksPredictionScreen extends StatelessWidget {
                     child: Text("Get Marks",style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),),)
                   ),),
             ),
@@ -91,8 +98,12 @@ class MarksPredictionScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 16),
-                        child: Text("Predicted Marks: ${provider.marks}"),
+                        padding: const EdgeInsets.only(top: 16,left: 16),
+                        child: Text("Predicted Marks: ${provider.marks}",style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+
+                        ),),
                       ),
                       SizedBox(height: 16),
                       if (provider.image.isNotEmpty) Padding(
