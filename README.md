@@ -27,7 +27,7 @@ The OCR Text Recognition Module is designed to extract text from images using Fl
 
 ## 📸 Screenshots
 
-*Currently unavailable*
+<img src="/readme/text_recognizition_readme.png" width="100%">
 
 ## 🚀 Setup Guide
 
