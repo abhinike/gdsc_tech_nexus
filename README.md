@@ -12,8 +12,8 @@ The Speech Recognition Flutter App is a mobile application designed to transcrib
 ## Screenshots
 
 <div style="display: flex;">
-  <img src="/assets/speech_recognition_screenshots/screenshot1.jpg" width="50%">
-  <img src="/assets/speech_recognition_screenshots/screenshot2.jpg" width="50%">
+  <img src="/assets/speech_recognition_screenshots/screenshot1.jpg" width="40%">
+  <img src="/assets/speech_recognition_screenshots/screenshot2.jpg" width="40%">
 </div>
 
 
